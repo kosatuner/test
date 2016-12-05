@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>AccionesDev</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<div class="nav">
+	<%=link_to "Mercados", markets_path %>
+	<%=link_to "Acciones", stocks_path%>
+	<%=link_to "Cotización", prices_path%>
+	<%=link_to "Indicador", indicators_path%>
+	<%=link_to "Tipo Indicador", indicator_types_path%>
+</div>
+
+<%= yield %>
+
+</body>
+</html>

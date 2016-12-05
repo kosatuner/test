@@ -1,0 +1,41 @@
+<%= form_for(@indicator) do |f| %>
+  <% if @indicator.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@indicator.errors.count, "error") %> prohibited this indicator from being saved:</h2>
+
+      <ul>
+      <% @indicator.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :valor %><br>
+    <%= f.number_field :valor, :step => "any"%>
+  </div>
+  <div class="field">
+    <%= f.label :fecha %><br>
+    <%= f.date_select :fecha %>
+  </div>
+  <div class="field">
+    <%= f.label :signal %><br>
+    <%= f.text_field :signal %>
+  </div>
+<div class="field">
+    <%= f.label :stock_id %><br>
+    <% @stock = Stock.all %>
+    <%= f.select :stock_id, options_from_collection_for_select(Stock.all,"id","nombre")  %>
+    
+  </div>
+<div class="field">
+    <%= f.label :indicator_type_id %><br>
+    <% @indicatortype = IndicatorType.all %>
+    <%= f.select :indicator_type_id, options_from_collection_for_select(IndicatorType.all,"id","nombre")  %>
+    
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

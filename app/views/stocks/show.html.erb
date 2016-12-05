@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Ticker:</strong>
+  <%= @stock.ticker %>
+</p>
+
+<p>
+  <strong>Nombre:</strong>
+  <%= @stock.nombre %>
+</p>
+
+<p>
+  <strong>Descripcion:</strong>
+  <%= @stock.descripcion %>
+</p>
+
+<p>
+  <strong>Market:</strong>
+  <%= @stock.market.nombre %>
+</p>
+<p>
+  <strong>Precios:</strong>
+  <% @stock.prices.each do |price| %>
+  <%= price.precio %>
+  <% end %>
+</p>
+<p>
+  <strong>Indicadores:</strong>
+  <% @stock.indicator_type.each do |indiType| %>
+  <% if indicator = indiType.indicators.order('indicators.fecha DESC').first %>
+  <p> <%= indicator.signal %> - <%= indiType.nombre %> - <%= indicator.valor %></p>
+  <% end %>
+  <% end -%>
+</p>
+
+<%# render 'price#index'%>
+<%= link_to 'Precios', precio_url(@stock) %> |
+<%= link_to 'Edit', edit_stock_path(@stock) %> |
+<%= link_to 'Back', stocks_path %>
