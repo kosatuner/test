@@ -27,12 +27,12 @@ test:
   database: db/test.sqlite3
 
 production:
-  adapter: mysql2
-  username: root
-  password: elfokeldras
-  host: localhost
-  port: 3306
-  database: acciones_dev_mysql
+  adapter: postgresql
+  encoding: unicode
+  database: ddnpb68mfol9nk
   pool: 5
-  timeout: 5000
+  username: wzprwwouvzgvdn
+  password: SRVnvz7jAhJdzVyXz6_FbtOMLw
+  host: ec2-54-83-194-208.compute-1.amazonaws.com
+  port: 5432
   
